@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ticket Booking - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #e0f2ff 0%, #ffffff 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .travel-card {
+      border: none;
+      border-radius: 1rem;
+      overflow: hidden;
+      transition: transform .25s ease, box-shadow .25s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background: #ffffff;
+    }
+
+    .travel-card:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .travel-card img {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+      border-bottom: 2px solid #0d6efd;
+    }
+
+    .section-title {
+      color: #0a58ca;
+      font-weight: 700;
+    }
+
+    .navbar {
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      margin-top: auto;
+    }
+
+    .card-title.text-primary {
+      color: #0d6efd !important;
+    }
+
+    .card-title.text-success {
+      color: #198754 !important;
+    }
+
+    .card-title.text-danger {
+      color: #dc3545 !important;
+    }
+
+    .btn-primary {
+      background-color: #0d6efd;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #0b5ed7;
+    }
+
+    .btn-success:hover {
+      background-color: #157347;
+    }
+
+    .btn-danger:hover {
+      background-color: #bb2d3b;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-4">
+    <a class="navbar-brand" href="#">Ticket Booking</a>
+    <div class="ms-auto">
+      <a class="btn btn-outline-light me-2" href="/">Home</a>
+      <a class="btn btn-outline-light me-2" href="/bill">Ticket Details</a>
+      <a class="btn btn-outline-light me-2" href="/history">Booking History</a>
+    </div>
+  </nav>
+
+  <!-- Main Section -->
+  <div class="container py-5">
+    <h2 class="text-center mb-4 section-title">Choose Your Travel Mode</h2>
+    <div class="row g-4 text-center">
+
+      <!-- Bus -->
+      <div class="col-md-4">
+        <div class="card travel-card">
+          <img src="{{ url_for('static', filename='images/bus.png') }}" alt="Bus">
+          <div class="card-body">
+            <h5 class="card-title text-primary">Bus Ticket – ₹500</h5>
+            <p class="card-text">Comfortable road journey with top bus operators.</p>
+            <a href="/book/Bus" class="btn btn-primary w-100">Book Bus</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Train -->
+      <div class="col-md-4">
+        <div class="card travel-card">
+          <img src="{{ url_for('static', filename='images/train.png') }}" alt="Train">
+          <div class="card-body">
+            <h5 class="card-title text-success">Train Ticket – ₹250</h5>
+            <p class="card-text">Fast, safe and scenic journeys on Indian Railways.</p>
+            <a href="/book/Train" class="btn btn-success w-100">Book Train</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flight -->
+      <div class="col-md-4">
+        <div class="card travel-card">
+          <img src="{{ url_for('static', filename='images/flight.png') }}" alt="Flight">
+          <div class="card-body">
+            <h5 class="card-title text-danger">Flight Ticket – ₹2000</h5>
+            <p class="card-text">Reach your destination faster with domestic flights.</p>
+            <a href="/book/Flight" class="btn btn-danger w-100">Book Flight</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white text-center py-3">
+    &copy; 2025 Ticket Booking System. All rights reserved.
+  </footer>
+
+</body>
+</html>
